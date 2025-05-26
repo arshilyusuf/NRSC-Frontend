@@ -19,24 +19,7 @@ export default function LeftPanel() {
         </select>
       </div>
 
-      <div className={styles.group}>
-        <label className={styles.label}>Date Range</label>
-        <div className={styles.dateRange}>
-          <input type="date" className={styles.dateInput} />
-          <span className={styles.dateSeparator}>to</span>
-          <input type="date" className={styles.dateInput} />
-        </div>
-      </div>
-
-      <div className={styles.group}>
-        <label htmlFor="rating" className={styles.label}>
-          Sort By Rating
-        </label>
-        <select id="rating" name="rating" className={styles.select}>
-          <option value="highest">Highest First</option>
-          <option value="lowest">Lowest First</option>
-        </select>
-      </div>
+      
     </div>
   );
 }

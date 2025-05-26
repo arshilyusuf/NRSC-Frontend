@@ -1,10 +1,5 @@
 import styles from "./ProjectDisplay.module.css";
-
-
-
 export default function ProjectDisplay({project }) {
-  
-
   return (
     <div className={styles.card}>
       <h1 className={styles.title}>{project.name}</h1>

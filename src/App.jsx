@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Homepage from "./pages/Homepage";
-import ProjectDisplay from "./components/ProjectDisplay";
 import NotFound from "./pages/NotFound"; // You can create this for unmatched routes
 import AdminPage from "./pages/AdminPage";
 import Navbar from "./components/Navbar";
@@ -56,13 +55,11 @@ function App() {
 
   return (
     <>
-      <Navbar />
       <Router>
+      <Navbar />
         <Routes>
           <Route path="/" element={<Homepage projects={projects} />} />
-
           <Route path="*" element={<NotFound />} />
-
           <Route path="admin" element={<AdminPage />} />
         </Routes>
       </Router>

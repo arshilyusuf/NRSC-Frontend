@@ -4,7 +4,7 @@ import styles from "./Navbar.module.css";
 export default function Navbar() {
   const options = [
     { value: "overview", label: "Overview" },
-    { value: "details", label: "Project Details" },
+    { value: "admin", label: "Admin" },
 
   ];
 
