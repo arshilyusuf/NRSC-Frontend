@@ -3,6 +3,7 @@ import Homepage from "./pages/Homepage";
 import NotFound from "./pages/NotFound"; // You can create this for unmatched routes
 import AdminPage from "./pages/AdminPage";
 import Navbar from "./components/Navbar";
+import Feedback from "./components/Feedback";
 
 function App() {
   const projects = [
@@ -61,6 +62,7 @@ function App() {
           <Route path="/" element={<Homepage projects={projects} />} />
           <Route path="*" element={<NotFound />} />
           <Route path="admin" element={<AdminPage />} />
+          <Route path="feedback" element={<Feedback />} />
         </Routes>
       </Router>
     </>
