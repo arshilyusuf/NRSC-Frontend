@@ -109,7 +109,7 @@
 .radio-buttons {
   display: flex;
   /* flex-direction: column; */
-  gap: 9.5rem;
+  gap: 7rem;
 }
 .input-grid {
   display: grid;
