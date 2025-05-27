@@ -47,8 +47,12 @@ export default function FilterPanel() {
           <option value="1">1</option>
         </select>
       </div>
+      <div className={styles.group}>
+        <label htmlFor="" className={styles.label}>
+          Search by Name
+        </label>
+      </div>
 
-      
       <button className={styles.button}>Show Results</button>
     </div>
   );

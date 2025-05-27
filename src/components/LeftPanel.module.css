@@ -16,16 +16,14 @@
       background-color: #7fa9ee3f;
     }
     
-    .group {
-      margin-bottom: 1rem;
-    }
+
     
     .label {
       display: block;
       font-size: 0.875rem;
       font-weight: 500;
       color: #191919;
-      margin: 0rem 1rem 0.5rem 1rem;
+      margin: 0rem 0rem 0.5rem 1rem;
     }
     
     .select {
@@ -38,6 +36,7 @@
       outline: none;
       transition: border-color 0.2s, box-shadow 0.2s;
       margin: 0rem 1rem;
+      margin-bottom: 1rem;
     }
     
     .select:focus {

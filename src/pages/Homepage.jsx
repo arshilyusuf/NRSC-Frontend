@@ -10,6 +10,7 @@ export default function Homepage() {
       team: ["Arshil Yusuf", "Rahul Das"],
       status: "Beta",
       timeline: "Feb 2025 – Ongoing",
+      category: "Social Networking / Developer Community",
     },
     {
       name: "StayMate",
@@ -19,6 +20,7 @@ export default function Homepage() {
       team: ["Arshil Yusuf", "Sneha Jain", "Karan M."],
       status: "Completed",
       timeline: "Aug 2024 – Nov 2024",
+      category: "Urban & Infrastructure",
     },
     {
       name: "Pharmaverse",
@@ -28,6 +30,7 @@ export default function Homepage() {
       team: ["Arshil Yusuf", "Tina George"],
       status: "Deployed",
       timeline: "July 2024 – Sep 2024",
+      category: "Healthcare / Inventory Management",
     },
     {
       name: "EduInsight",
@@ -37,6 +40,7 @@ export default function Homepage() {
       team: ["Arshil Yusuf", "Vikas Rana"],
       status: "Development",
       timeline: "Mar 2025 – Ongoing",
+      category: "AI/ML",
     },
     {
       name: "HealthBridge",
@@ -46,8 +50,10 @@ export default function Homepage() {
       team: ["Arshil Yusuf", "Komal Rajput"],
       status: "Testing",
       timeline: "May 2024 – Aug 2024",
+      category: "Telemedicine / Rural Development",
     },
   ];
+  
   return (
     <div>
       <Display projects={projects} />
