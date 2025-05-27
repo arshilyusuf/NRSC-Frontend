@@ -3,7 +3,7 @@ import Homepage from "./pages/Homepage";
 import NotFound from "./pages/NotFound"; // You can create this for unmatched routes
 import AdminPage from "./pages/AdminPage";
 import Navbar from "./components/Navbar";
-import Feedback from "./components/Feedback";
+import Feedback from "./pages/Feedback";
 
 function App() {
   const projects = [

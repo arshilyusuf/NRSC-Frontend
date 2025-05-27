@@ -15,9 +15,10 @@ export default function Dropdown({ options, label = "Select", onSelect }) {
     // Navigate to /admin if option.value is "admin"
     if (option.value === "admin") {
       navigate("/admin");
-    }
-    else if (option.value === "overview") {
+    } else if (option.value === "overview") {
       navigate("/");
+    } else if (option.value === "feedback") {
+      navigate("/feedback");
     }
   };
 

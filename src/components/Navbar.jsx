@@ -5,6 +5,7 @@ export default function Navbar() {
   const options = [
     { value: "overview", label: "Overview" },
     { value: "admin", label: "Admin" },
+    { value: "feedback", label: "Feedback" },
   ];
 
   const handleSelect = (option) => {
