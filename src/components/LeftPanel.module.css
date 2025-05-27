@@ -1,5 +1,5 @@
 .panel {
-      background-color: rgb(139, 141, 149);
+      background-color: rgba(250, 250, 250, 0.423);
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       max-width: 300px;
       width: 100%;
@@ -7,9 +7,9 @@
     }
     
     .title {
-      font-size: 1.125rem;
+      font-size: 1.2rem;
       font-weight: 600;
-      color: white;
+      color: var(--blue);
       padding: 1rem 2rem;
       margin-bottom: 1rem;
     }
@@ -22,7 +22,7 @@
       display: block;
       font-size: 0.875rem;
       font-weight: 500;
-      color: #e8e8e8;
+      color: #191919;
       margin: 0rem 1rem 0.5rem 1rem;
     }
     

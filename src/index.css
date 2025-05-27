@@ -3,10 +3,13 @@
   margin:0;
   padding:0;
   box-sizing: border-box;
-  font-family: "Zilla Slab", serif;
-    letter-spacing: 1px;
+  font-family: "Host Grotesk", sans-serif;
+  --blue: rgb(0, 112, 192);
+  --bluedark:rgb(1, 89, 152);
+  --orange: rgb(246, 120, 9);
+  --orangedark:rgb(208, 101, 8);
 }
 body{
-  background-color: #f3f4f6; /* gray-100 */
+  background-color: #ffffff; /* gray-100 */
 
 }

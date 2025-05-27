@@ -79,14 +79,14 @@ export default function AdminPage() {
           isPanelVisible ? styles.slideIn : styles.slideOut
         }`}
       >
-        <button className={styles.toggleButton} onClick={togglePanel}>
-          {isPanelVisible ? <FaFilter /> : <FaFilter />}
-        </button>
         <FilterPanel />
       </div>
       <div className={styles.heading}>
         <h1 className={styles.pageTitle}>Admin Projects Overview</h1>
         <div className={styles.options}>
+          <button className={styles.toggleButton} onClick={togglePanel}>
+            Filter {isPanelVisible ? <FaFilter /> : <FaFilter />}
+          </button>
           <button className={styles.add}>Add Project</button>
           <button className={styles.remove}>Remove Project</button>
         </div>

@@ -5,7 +5,6 @@ export default function Navbar() {
   const options = [
     { value: "overview", label: "Overview" },
     { value: "admin", label: "Admin" },
-
   ];
 
   const handleSelect = (option) => {
@@ -14,7 +13,9 @@ export default function Navbar() {
 
   return (
     <nav className={styles.navbar}>
-      <h1 className={styles.title}>NRSC</h1>
+      <div className={styles.image}>
+        <img src="public/nrsclogo.png" alt="" />
+      </div>
       <h2 className={styles.subtitle}>Project Display</h2>
       <Dropdown options={options} label="Navigate" onSelect={handleSelect} />
     </nav>

@@ -1,133 +1,130 @@
 /* AdminPage.module.css */
 
 .pageContainer {
-      width: 100%;
-      padding-top: 2rem;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #222;
-      background: #fff;
-      border-radius: 2.2rem;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-    }
-    
-    .pageTitle {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 30px;
-      font-weight: 700;
-      color: #0a3d62;
-      user-select: none;
-    }
+  width: 100%;
+  padding-top: 2rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+  background-color: #f3f4f6; /* gray-100 */
+  border-radius: 2.2rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
 
-    .filterPanel {
-      
-      transition: transform 0.3s ease-in-out;
-      background-color: transparent;
-      position: absolute;
-      z-index: 2;
-      
-    }
+.pageTitle {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  font-weight: 700;
+  color: #0a3d62;
+  user-select: none;
+}
 
-    .toggleButton {
-      position: absolute;
-      top: 40px;
-      left: 250px;
-      z-index: 3;
-      width: 40px;
-      height: 40px;
-      
-      border: none;
-      background-color: #333;
-      color: white;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: left 0.3s ease-in-out;
-    }
-    .slideOut + .toggleButton {
-      left: 10px;
-    }
-    
-    /* Existing styles */
-    .wrapper {
-      width: 100%;
-      overflow: hidden;
-      height: 91vh;
-      position: relative;
-      background-color: #efefef;
-    }
-    
-    .slider {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-      width: 100%;
-      height: 100%;
-    }
-    
+.filterPanel {
+  transition: transform 0.3s ease-in-out;
+  background-color: transparent;
+  position: absolute;
+  z-index: 1;
+  top:10rem;
+  left:48rem
+}
 
-    .slideIn {
-      transform: translateX(0);
-    }
-    
-    .slideOut {
-      transform: translateX(-100%);
-    }
-    
-    .heading {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 30px;
-      padding: 0 10px;
-      margin-left: 2rem;
-      margin-right: 2rem;
-    }
-    
-    .pageTitle {
-      font-size: 2rem;
-      font-weight: 700;
-      color: #0a3d62;
-      margin: 0;
-    }
-    
-    .options {
-      display: flex;
-      gap: 12px;
-     
-    }
-    
-    .add {
-      background-color: #f0f0f0; /* Nice green */
-      color: rgb(0, 0, 0);
-      border: none;
-      padding: 8px 16px;
-      font-weight: 600;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-      box-shadow: 4px 4px 10px rgba(170, 169, 169, 0.211);
-    }
-    
-    .add:hover {
-      background-color: #27ae60;
-    }
-    
-    .remove {
-      background-color: #f0f0f0; /* Nice green */
-      color: rgb(139, 20, 20);
-      border: none;
-      padding: 8px 16px;
-      font-weight: 600;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-      box-shadow: 4px 4px 10px rgba(170, 169, 169, 0.211);
+.toggleButton {
+  padding: 1rem 2rem;
+  border-radius: 0.4rem;
+  border: none;
+  background-color:var(--blue);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+.toggleButton:hover{
+  background-color: var(--bluedark);
+  transition: all 0.3s ease;
+}
 
-    }
-    
-    .remove:hover {
-      background-color: #c0392b;
-      color: whitesmoke;
-    }
-    
+
+/* Existing styles */
+.wrapper {
+  width: 100%;
+  overflow: hidden;
+  height: 91vh;
+  position: relative;
+  background-color: #efefef;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+  height: 100%;
+}
+
+.slideIn {
+  transform: translateY(0);
+}
+
+.slideOut {
+  transform: translateY(-100%);
+  transition: all ease 0.3s;
+  display: none;
+}
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 0 10px;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.pageTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0a3d62;
+  margin: 0;
+}
+
+.options {
+  display: flex;
+  gap: 12px;
+}
+
+.add {
+  background-color: #f0f0f0; /* Nice green */
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 8px 16px;
+  font-weight: 600;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  box-shadow: 4px 4px 10px rgba(170, 169, 169, 0.211);
+}
+
+.add:hover {
+  background-color: #27ae60;
+  color:white;
+}
+
+.remove {
+  background-color: #f0f0f0; /* Nice green */
+  color: rgb(139, 20, 20);
+  border: none;
+  padding: 8px 16px;
+  font-weight: 600;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  box-shadow: 4px 4px 10px rgba(170, 169, 169, 0.211);
+}
+
+.remove:hover {
+  background-color: #c0392b;
+  color: whitesmoke;
+}
+

@@ -48,17 +48,7 @@ export default function FilterPanel() {
         </select>
       </div>
 
-      {/* Status Filter */}
-      <div className={styles.group}>
-        <label htmlFor="status" className={styles.label}>
-          Status
-        </label>
-        <select id="status" name="status" className={styles.select}>
-          <option value="">-- Select Status --</option>
-          <option value="finished">Finished</option>
-          <option value="ongoing">Ongoing</option>
-        </select>
-      </div>
+      
       <button className={styles.button}>Show Results</button>
     </div>
   );
