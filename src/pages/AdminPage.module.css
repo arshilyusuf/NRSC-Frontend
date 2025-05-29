@@ -5,7 +5,7 @@
   padding-top: 2rem;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #222;
-  background-color: #f3f4f6; /* gray-100 */
+  background-color: rgb(239, 239, 239);
   border-radius: 2.2rem;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
 }
@@ -24,8 +24,8 @@
   background-color: transparent;
   position: absolute;
   z-index: 1;
-  top:10rem;
-  left:48rem
+  top:10.2rem;
+  left:48.6rem
 }
 
 .toggleButton {
@@ -95,7 +95,7 @@
 }
 
 .add {
-  background-color: #f0f0f0; /* Nice green */
+  background-color: #f9f8f8; /* Nice green */
   color: rgb(0, 0, 0);
   border: none;
   padding: 8px 16px;
@@ -112,7 +112,7 @@
 }
 
 .remove {
-  background-color: #f0f0f0; /* Nice green */
+  background-color: #f9f8f8;
   color: rgb(139, 20, 20);
   border: none;
   padding: 8px 16px;

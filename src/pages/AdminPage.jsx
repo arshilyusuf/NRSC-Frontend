@@ -2,73 +2,35 @@ import ProjectList from "../components/ProjectList";
 import styles from "./AdminPage.module.css";
 import FilterPanel from "../components/FilterPanel";
 import { FaFilter, FaArrowRight } from "react-icons/fa";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function AdminPage() {
-  const projects = [
-    {
-      name: "DevNet",
-      topic: "Social Media for Developers",
-      startDate: "2025-02-01",
-      stars: 4,
-    },
-    {
-      name: "StayMate",
-      topic: "Roommate Finder",
-      startDate: "2024-08-15",
-      stars: 5,
-    },
-    {
-      name: "Pharmaverse",
-      topic: "Drug Inventory Management",
-      startDate: "2024-07-10",
-      stars: 4,
-    },
-    {
-      name: "EduInsight",
-      topic: "Student Performance AI Tracker",
-      startDate: "2025-03-05",
-      stars: 3,
-    },
-    {
-      name: "HealthBridge",
-      topic: "Rural Telemedicine Platform",
-      startDate: "2024-05-20",
-      stars: 4,
-    },
-    {
-      name: "GreenRoute",
-      topic: "Eco-friendly Navigation App",
-      startDate: "2024-11-01",
-      stars: 5,
-    },
-    {
-      name: "FitTrack",
-      topic: "Personal Fitness Tracker",
-      startDate: "2024-09-12",
-      stars: 3,
-    },
-    {
-      name: "BookHive",
-      topic: "Community Book Sharing",
-      startDate: "2025-01-15",
-      stars: 4,
-    },
-    {
-      name: "CodeSprint",
-      topic: "Competitive Coding Platform",
-      startDate: "2023-12-01",
-      stars: 5,
-    },
-    {
-      name: "TravelMate",
-      topic: "Travel Planning Assistant",
-      startDate: "2024-10-05",
-      stars: 3,
-    },
-  ];
-  const [isPanelVisible, setIsPanelVisible] = useState(true);
+  
+  const [isPanelVisible, setIsPanelVisible] = useState(false);
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
+  useEffect(() => {
+    fetch("http://127.0.0.1:8000/api/projects/?format=json")
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Failed to fetch projects.");
+        }
+        return res.json();
+      })
+      .then((data) => {
+        setProjects(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) return <p>Loading projects...</p>;
+  if (error) return <p>Error: {error}</p>;
   const togglePanel = () => {
     setIsPanelVisible((prev) => !prev);
   };

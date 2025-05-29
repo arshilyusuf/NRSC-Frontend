@@ -10,7 +10,7 @@
   /* max-width: 600px; */
   /* margin: 2rem auto; */
   padding: 2.5rem 2rem;
-  background-color: #f3f4f6;
+  background-color: rgb(239, 239, 239);
   border-radius: 2.2rem;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -56,10 +56,11 @@
   flex-direction: column;
   gap: 1.5rem;
   margin-top: 1rem;
+  
 }
 
 .feedback-option-group {
-  background: #e9ecef;
+  background: #d7dde4;
   border-radius: 1rem;
   padding: 1rem 1.5rem;
   display: flex;

@@ -41,7 +41,7 @@ export default function LeftPanel() {
   const handleDomainTypeChange = (e) => {
     const type = e.target.value;
     setDomainType(type);
-    setDomainList(type === "pplication" ? application_domain : technical_domains);
+    setDomainList(type === "application" ? application_domain : technical_domains);
     setSelectedDomain("");
   };
 
@@ -57,7 +57,6 @@ export default function LeftPanel() {
         Search
       </label>
       <input type="text" name="" id="" className={styles.select} />
-      {/* Domain Type */}
       <div className={styles.group}>
         <label htmlFor="domainType" className={styles.label}>
           Domain Type

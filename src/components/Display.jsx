@@ -6,7 +6,7 @@ import { FaArrowLeft, FaArrowRight, FaBars} from "react-icons/fa";
 
 export default function Display({ projects }) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isPanelVisible, setIsPanelVisible] = useState(true);
+  const [isPanelVisible, setIsPanelVisible] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {

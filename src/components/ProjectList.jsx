@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from "./ProjectList.module.css";
+import AbstractPreview from "./AbstractPreview";
 
 const ITEMS_PER_PAGE = 10;
 
@@ -25,18 +26,21 @@ const ProjectList = ({ projects }) => {
     <div className={styles.container}>
       <h2>Projects</h2>
       <ul className={styles.list}>
-        {paginatedProjects.map(({ name, topic, startDate, stars }, idx) => (
-          <li key={idx} className={styles.listItem}>
-            <h3 className={styles.projectName}>{name}</h3>
-            <div className={styles.infoRow}>
-              <span className={styles.topic}>{topic}</span>
-              <div className={styles.rightSide}>
-                <span>{startDate}</span>
-                <span className={styles.rating}>Grade: {stars}</span>
+        {paginatedProjects.map(
+          ({ name, title, domain, category, abstract }, idx) => (
+            <li key={idx} className={styles.listItem}>
+              <h3 className={styles.projectName}>{title}</h3>
+              <AbstractPreview abstract={abstract}/>
+              <div className={styles.infoRow}>
+                <span className={styles.topic}>{name}</span>
+                <div className={styles.rightSide}>
+                  <span>{domain}</span>
+                  <span className={styles.rating}>{category}</span>
+                </div>
               </div>
-            </div>
-          </li>
-        ))}
+            </li>
+          )
+        )}
       </ul>
 
       {/* Pagination Buttons */}

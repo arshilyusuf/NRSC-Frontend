@@ -10,6 +10,6 @@
   --orangedark:rgb(208, 101, 8);
 }
 body{
-  background-color: #ffffff; /* gray-100 */
-
+  background-color:rgb(255, 255, 255);
+  max-height: 100vh;
 }
