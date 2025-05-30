@@ -6,11 +6,12 @@ import Navbar from "./components/Navbar";
 import Feedback from "./pages/Feedback";
 import ProjectReportPage from "./pages/ProjectReportPage";
 import Footer from "./components/Footer"
+import styles from './App.module.css'
 function App() {
   
 
   return (
-    <>
+    <div className={styles.main}>
       <Router>
       <Navbar />
         <Routes>
@@ -22,7 +23,7 @@ function App() {
         </Routes>
         <Footer/>
       </Router>
-    </>
+    </div>
   );
 }
 

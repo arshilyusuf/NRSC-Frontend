@@ -2,6 +2,7 @@
   display: flex;
   position: relative;
   max-height: 100vh;
+  
 }
 
 /* Left panel sliding styles */
@@ -73,10 +74,18 @@
 
 .dots {
   position: absolute;
-  bottom: 15px;
+  bottom:20px;
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  gap: 10px;
+  
+}
+.dotsbatch{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 10px;
 }
 
@@ -91,4 +100,38 @@
 
 .activeDot {
   background-color: #333;
+}
+/* Display.module.css */
+.loading {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.viewMore {
+  text-align: center;
+  margin-top: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.dotsbatch button {
+  padding: 8px 16px;
+  background-color: #2e2e2e;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.dotsbatch button:disabled {
+  background-color: #777;
+  cursor: not-allowed;
+}
+
+.dotsbatch button:not(:disabled):hover {
+  background-color: #1c1c1c;
 }
