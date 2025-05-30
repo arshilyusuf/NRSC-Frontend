@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Display from "../components/Display";
+import styles from "./Homepage.module.css";
 
 export default function Homepage() {
   const [projects, setProjects] = useState([]);
@@ -24,12 +25,24 @@ export default function Homepage() {
       });
   }, []);
 
-  if (loading) return <p>Loading projects...</p>;
-  if (error) return <p>Error: {error}</p>;
-
   return (
-    <div>
-      <Display projects={projects} />
+    <div className={styles.main}>
+      {error ? (
+        <div className={styles.errorBox}>
+          <h2>🚫 Failed to Load Projects</h2>
+          <p>{error}</p>
+          <button
+            onClick={() => window.location.reload()}
+            className={styles.retryBtn}
+          >
+            Retry
+          </button>
+        </div>
+      ) : loading ? (
+        <p>Loading projects...</p>
+      ) : (
+        <Display projects={projects} />
+      )}
     </div>
   );
 }

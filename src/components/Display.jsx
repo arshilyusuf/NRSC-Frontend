@@ -21,7 +21,7 @@ export default function Display({ projects }) {
         const maxIndex = Math.min(batchSize, displayedProjects.length) - 1;
         return prevIndex === maxIndex ? 0 : prevIndex + 1;
       });
-    }, 5000);
+    }, 10000);
 
     return () => clearInterval(interval);
   }, [displayedProjects.length, batchIndex]);
@@ -55,7 +55,7 @@ export default function Display({ projects }) {
   };
 
   const maxBatch = Math.floor((displayedProjects.length - 1) / batchSize);
-
+  
   const currentBatchProjects = displayedProjects.slice(
     batchIndex * batchSize,
     batchIndex * batchSize + batchSize
@@ -104,6 +104,11 @@ export default function Display({ projects }) {
           className={styles.slider}
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
+          {displayedProjects.length === 0 && (
+            <div className={styles.errorBox}>
+              <h2>No Projects</h2>
+            </div>
+          )}
           {currentBatchProjects.map((project, index) => (
             <div className={styles.projectItem} key={index}>
               <ProjectDisplay project={project} />
@@ -112,31 +117,37 @@ export default function Display({ projects }) {
         </div>
 
         <div className={styles.dots}>
-          <div className={styles.dotsbatch}>
-            <button
-              onClick={handlePrevBatch}
-              disabled={batchIndex === 0}
-              style={{ marginRight: "2rem" }}
-            >
-              View Previous
-            </button>
-            {currentBatchProjects.map((_, index) => (
-              <div
-                key={index}
-                className={`${styles.dot} ${
-                  index === currentIndex ? styles.activeDot : ""
-                }`}
-                onClick={() => goToIndex(index)}
-              />
-            ))}
-            <button
-              onClick={handleNextBatch}
-              disabled={batchIndex === maxBatch}
-              style={{ marginLeft: "2rem" }}
-            >
-              View More
-            </button>
-          </div>
+          {displayedProjects.length !== 0 && (
+            <div className={styles.dotsbatch}>
+              {batchIndex > 0 && (
+                <button
+                  onClick={handlePrevBatch}
+                  style={{ marginRight: "2rem" }}
+                >
+                  ← {batchIndex}
+                </button>
+              )}
+
+              {currentBatchProjects.map((_, index) => (
+                <div
+                  key={index}
+                  className={`${styles.dot} ${
+                    index === currentIndex ? styles.activeDot : ""
+                  }`}
+                  onClick={() => goToIndex(index)}
+                />
+              ))}
+
+              {batchIndex < maxBatch && (
+                <button
+                  onClick={handleNextBatch}
+                  style={{ marginLeft: "2rem" }}
+                >
+                  {batchIndex + 2} →
+                </button>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </div>

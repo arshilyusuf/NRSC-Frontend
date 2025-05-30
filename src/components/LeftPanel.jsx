@@ -36,10 +36,8 @@ export default function LeftPanel({projects, domainType, setDomainType, selected
   
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredResults, setFilteredResults] = useState([]);
-  const [domainList, setDomainList] = useState(application_domain.push(technical_domains))
+  const [domainList, setDomainList] = useState([])
   const searchContainerRef = useRef(null);
-
-  
 
   const handleDomainTypeChange = (e) => {
     const type = e.target.value;
@@ -154,7 +152,7 @@ export default function LeftPanel({projects, domainType, setDomainType, selected
           className={styles.select}
         >
           <option value="">-Select Domain Type-</option>
-          <option value="application">Application domain</option>
+          <option value="application">Application Domains</option>
           <option value="technical">Technical Domains</option>
         </select>
       </div>
