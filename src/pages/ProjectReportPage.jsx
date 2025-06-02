@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./ProjectReport.module.css";
+import axios from "axios"; // Import axios
 
 const ProjectReportPage = () => {
   const [pdfFile, setPdfFile] = useState(null);
@@ -8,7 +9,8 @@ const ProjectReportPage = () => {
     setPdfFile(e.target.files[0]);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
+    // Make handleSubmit async
     e.preventDefault();
     if (!pdfFile) {
       alert("Please upload a PDF file.");
@@ -16,10 +18,25 @@ const ProjectReportPage = () => {
     }
 
     const formData = new FormData();
-    formData.append("report", pdfFile);
+    formData.append("file", pdfFile); // Use "file" as the field name
 
-    console.log("Form submitted", pdfFile);
-    // Example: axios.post('/upload', formData)
+    try {
+      const response = await axios.post(
+        "http://127.0.0.1:8000/api/projects/upload/", // Your API endpoint
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
+      console.log("Upload successful:", response.data);
+      alert("PDF uploaded successfully!"); // Optional success message
+    } catch (error) {
+      console.error("Upload error:", error);
+      alert("Failed to upload PDF."); // Optional error message
+    }
   };
 
   return (

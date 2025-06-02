@@ -8,6 +8,8 @@
   text-align: left;
   transition: transform 0.3s ease;
   height: 95%;
+  overflow: hidden;
+  overflow-y: auto;
 }
 
 .card:hover {
@@ -29,6 +31,7 @@
   color: #555;
   margin-bottom: 1rem;
   line-height: 1.6;
+  
 }
 
 .meta {

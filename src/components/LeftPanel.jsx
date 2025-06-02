@@ -67,10 +67,9 @@ export default function LeftPanel({projects, domainType, setDomainType, selected
     } else {
       const results = projects.filter((project) => {
         const fields = [
-          project.name,
-          project.domain,
-          project.title,
-          project.category,
+          project.project_title,
+          project.application_domain,
+          project.technical_domain,
         ].join(" ").toLowerCase();
   
         return keywords.some((word) => fields.includes(word));
@@ -135,7 +134,7 @@ export default function LeftPanel({projects, domainType, setDomainType, selected
         <ul className={styles.dropdown}>
           {filteredResults.map((project) => (
             <li key={project.id} className={styles.dropdownItem}>
-              {project.title}
+              {project.project_title}
             </li>
           ))}
         </ul>

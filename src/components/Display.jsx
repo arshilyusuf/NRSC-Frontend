@@ -28,16 +28,14 @@ export default function Display({ projects }) {
 
   useEffect(() => {
     if (domainType && selectedCategory) {
-      const filtered = projects.filter(
-        (project) =>
-          project.domain.toLowerCase() === domainType.toLowerCase() &&
-          project.category.toLowerCase() === selectedCategory.toLowerCase()
-      );
-      setDisplayedProjects(filtered);
-    } else if (domainType) {
-      const filtered = projects.filter(
-        (project) => project.domain.toLowerCase() === domainType.toLowerCase()
-      );
+      const filtered = projects.filter(project => {
+        if (domainType === "application") {
+          return project.application_domain === selectedCategory;
+        } else if (domainType === "technical") {
+          return project.technical_domain === selectedCategory;
+        }
+        return true;
+      });
       setDisplayedProjects(filtered);
     } else {
       setDisplayedProjects(projects);

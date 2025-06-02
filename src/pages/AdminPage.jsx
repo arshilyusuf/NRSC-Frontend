@@ -3,9 +3,10 @@ import styles from "./AdminPage.module.css";
 import FilterPanel from "../components/FilterPanel";
 import { FaFilter, FaArrowRight } from "react-icons/fa";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function AdminPage() {
-  
+  const navigate = useNavigate();
   const [isPanelVisible, setIsPanelVisible] = useState(false);
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -49,7 +50,9 @@ export default function AdminPage() {
           <button className={styles.toggleButton} onClick={togglePanel}>
             Filter {isPanelVisible ? <FaFilter /> : <FaFilter />}
           </button>
-          <button className={styles.add}>Add Project</button>
+          <button className={styles.add} onClick={()=>{
+            navigate("/projectreport")
+          }}>Add Project</button>
           <button className={styles.remove}>Remove Project</button>
         </div>
       </div>
