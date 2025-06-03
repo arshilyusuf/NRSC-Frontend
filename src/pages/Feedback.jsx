@@ -1,9 +1,47 @@
+import React, { useState } from "react";
 import styles from "./Feedback.module.css";
+import axios from "axios";
+
 export default function Feedback() {
+  const [pdfFile, setPdfFile] = useState(null);
+
+  const handleFileChange = (e) => {
+    setPdfFile(e.target.files[0]);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!pdfFile) {
+      alert("Please upload a PDF file.");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("file", pdfFile);
+
+    try {
+      const response = await axios.post(
+        "http://127.0.0.1:8000/api/projects/upload/",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
+      console.log("Upload successful:", response.data);
+      alert("PDF uploaded successfully!");
+    } catch (error) {
+      console.error("Upload error:", error);
+      alert("Failed to upload PDF.");
+    }
+  };
+
   return (
     <div className={styles["feedback-container"]}>
       <h2>Feedback</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className={styles["input-grid"]}>
           {/* Row 1 */}
           <div style={{ gridColumn: 1, gridRow: 1 }}>
@@ -47,6 +85,37 @@ export default function Feedback() {
               name="remarks"
               rows={3}
               style={{ resize: "vertical" }}
+            />
+          </div>
+          {/* PDF Upload */}
+          <div
+            className={styles["date-group"]}
+            style={{ gridColumn: "1 / span 3", gridRow: 4 }}
+          >
+            <label style={{ fontSize: "2rem" }} htmlFor="report">
+              Upload Project Report PDF File
+            </label>
+            <input
+              type="file"
+              id="report"
+              accept="application/pdf"
+              onChange={handleFileChange}
+              style={{ width: "100%" }}
+            />
+          </div>
+          <div
+            className={styles["date-group"]}
+            style={{ gridColumn: "1 / span 3", gridRow: 5 }}
+          >
+            <label style={{ fontSize: "2rem" }} htmlFor="report">
+              Upload Project Report PPT File (If any)
+            </label>
+            <input
+              type="file"
+              id="report"
+              accept="application/pdf"
+              onChange={handleFileChange}
+              style={{ width: "100%" }}
             />
           </div>
         </div>
