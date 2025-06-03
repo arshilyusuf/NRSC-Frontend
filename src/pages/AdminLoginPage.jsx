@@ -1,46 +1,50 @@
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "./AdminLoginPage.module.css";
-export default function AdminLoginPage() {
+import styles from "./AdminLogin.module.css";
+
+const AdminLoginPage = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  function handleLoginSubmit(e) {
-    e.preventDefault(); // Prevent actual form submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle login logic here (e.g., API call)
+    console.log("Logging in with:", username, password);
     navigate("/admin");
-  }
+  };
 
   return (
-    <div className={styles.main}>
-      <h2>Login as Admin</h2>
-      <div className={styles.loginBox}>
-        <form onSubmit={handleLoginSubmit} className={styles.form}>
-          <div className={styles.group}>
-            <label className={styles.label} htmlFor="email">
-              Email:
-            </label>
-            <input
-              className={styles.inputField}
-              type="text"
-              id="email"
-              placeholder="Enter Email"
-            />
-          </div>
-          <div className={styles.group}>
-            <label className={styles.label} htmlFor="password">
-              Password:
-            </label>
-            <input
-              className={styles.inputField}
-              type="password"
-              id="password"
-              placeholder="Enter Password"
-            />
-          </div>
-          <button className={styles.loginButton} type="submit">
-            Login as Admin
-          </button>
-        </form>
-      </div>
+    <div className={styles.loginContainer}>
+      <h2 className={styles.loginTitle}>Admin Login</h2>
+      <form onSubmit={handleSubmit} className={styles.loginForm}>
+        <div className={styles.formGroup}>
+          <label htmlFor="username">Username:</label>
+          <input
+            type="text"
+            id="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+        </div>
+        <div className={styles.formGroup}>
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        <button type="submit" className={styles.loginButton}>
+          Login
+        </button>
+      </form>
     </div>
   );
-}
-    
+};
+
+export default AdminLoginPage;
+

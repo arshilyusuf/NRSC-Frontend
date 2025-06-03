@@ -3,7 +3,7 @@ import styles from './ProjectList.module.css'
 const AbstractPreview = ({ abstract }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const words = abstract.split(" ");
+  const words = abstract.toLowerCase().split(" ");
   const shouldTruncate = words.length > 40;
   const previewText = words.slice(0, 40).join(" ");
   const fullText = abstract;
