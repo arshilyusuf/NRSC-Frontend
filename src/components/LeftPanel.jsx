@@ -1,8 +1,19 @@
 import { useState, useEffect, useRef } from "react";
 import styles from "./LeftPanel.module.css";
 
-export default function LeftPanel({projects, domainType, setDomainType, selectedCategory, setselectedCategory, loading, setLoading, error, setError}) {
-  const application_domain = [
+export default function LeftPanel({ projects, domainType, setDomainType }) {
+  const domain = [
+    "Research based or innovation",
+    "Technology Demonstration",
+    "Software Development",
+    "Hardware Development",
+    "Cyber security",
+    "AI",
+    "ML",
+    "DEEP LEARNING",
+    "IOT",
+    "Neural Netwrok",
+    "Block Chain",
     "Agriculture",
     "Disaster Management Support",
     "Forestry & Ecology",
@@ -15,69 +26,57 @@ export default function LeftPanel({projects, domainType, setDomainType, selected
     "Earth and Climatic Studies",
   ];
 
-  const technical_domains = [
-    "Remote Sensing and GIS",
-    "App Development",
-    "Web Development",
-    "AI/ML",
-    "Image Processing/Computer Vision",
-    "Data Science / Big Data Analytics",
-    "Cloud Computing / High Performance Computing",
-    "IoT",
-    "Sensor Integration",
-    "Drone Data Processing and Integration",
-    "AR/VR",
-    "Robotics",
-    "Embedded Systems",
-    "3D Printing / Fabrication Technology",
-  ];
+  // const technical_domains = [
+  //   "Remote Sensing and GIS",
+  //   "App Development",
+  //   "Web Development",
+  //   "AI/ML",
+  //   "Image Processing/Computer Vision",
+  //   "Data Science / Big Data Analytics",
+  //   "Cloud Computing / High Performance Computing",
+  //   "IoT",
+  //   "Sensor Integration",
+  //   "Drone Data Processing and Integration",
+  //   "AR/VR",
+  //   "Robotics",
+  //   "Embedded Systems",
+  //   "3D Printing / Fabrication Technology",
+  // ];
 
-  
-  
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredResults, setFilteredResults] = useState([]);
-  const [domainList, setDomainList] = useState([])
+  const [domainList, setDomainList] = useState([]);
   const searchContainerRef = useRef(null);
 
   const handleDomainTypeChange = (e) => {
     const type = e.target.value;
     setDomainType(type);
-    setDomainList(
-      type === "application" ? application_domain : technical_domains
-    );
-    setselectedCategory("");
-  };
-
-  const handleCategoryChange = (e) => {
-    setselectedCategory(e.target.value);
+    setDomainList(domain);
   };
 
   const handleSearchChange = (e) => {
     const rawInput = e.target.value;
     setSearchTerm(rawInput);
-  
+
     const keywords = rawInput
       .toLowerCase()
       .trim()
       .split(/\s+/) // splits on one or more spaces
       .filter(Boolean); // removes empty strings
-  
+
     if (keywords.length === 0) {
       setFilteredResults([]);
     } else {
       const results = projects.filter((project) => {
-        const fields = [
-          project.project_title,
-          project.application_domain,
-          project.technical_domain,
-        ].join(" ").toLowerCase();
-  
+        const fields = [project.project_title, project.domain]
+          .join(" ")
+          .toLowerCase();
+
         return keywords.some((word) => fields.includes(word));
       });
       setFilteredResults(results);
     }
   };
-  
 
   // Clear search handler
   const clearSearch = () => {
@@ -150,32 +149,14 @@ export default function LeftPanel({projects, domainType, setDomainType, selected
           onChange={handleDomainTypeChange}
           className={styles.select}
         >
-          <option value="">-Select Domain Type-</option>
-          <option value="application">Application Domains</option>
-          <option value="technical">Technical Domains</option>
+          <option value="">Select Domain</option>
+          {domain.map((type) => (
+            <option key={type} value={type}>
+              {type}
+            </option>
+          ))}
         </select>
       </div>
-
-      {domainType && (
-        <div className={styles.group}>
-          <label htmlFor="domain" className={styles.label}>
-            Category
-          </label>
-          <select
-            id="domain"
-            value={selectedCategory}
-            onChange={handleCategoryChange}
-            className={styles.select}
-          >
-            <option value="">-- Select Category --</option>
-            {domainList.map((category) => (
-              <option key={category} value={category}>
-                {category}
-              </option>
-            ))}
-          </select>
-        </div>
-      )}
     </div>
   );
 }

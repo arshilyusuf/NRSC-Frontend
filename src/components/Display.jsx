@@ -8,7 +8,6 @@ export default function Display({ projects }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPanelVisible, setIsPanelVisible] = useState(false);
   const [domainType, setDomainType] = useState("");
-  const [selectedCategory, setselectedCategory] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [displayedProjects, setDisplayedProjects] = useState(projects);
@@ -27,14 +26,11 @@ export default function Display({ projects }) {
   }, [displayedProjects.length, batchIndex]);
 
   useEffect(() => {
-    if (domainType && selectedCategory) {
+    if (domainType ) {
       const filtered = projects.filter(project => {
-        if (domainType === "application") {
-          return project.application_domain === selectedCategory;
-        } else if (domainType === "technical") {
-          return project.technical_domain === selectedCategory;
-        }
-        return true;
+        
+          return project.domain === domainType;
+        
       });
       setDisplayedProjects(filtered);
     } else {
@@ -42,7 +38,7 @@ export default function Display({ projects }) {
     }
     setCurrentIndex(0);
     setBatchIndex(0);
-  }, [domainType, selectedCategory, projects]);
+  }, [domainType, projects]);
 
   const goToIndex = (index) => {
     setCurrentIndex(index);
@@ -83,8 +79,7 @@ export default function Display({ projects }) {
         <LeftPanel
           domainType={domainType}
           setDomainType={setDomainType}
-          selectedCategory={selectedCategory}
-          setselectedCategory={setselectedCategory}
+          
           loading={loading}
           setLoading={setLoading}
           error={error}

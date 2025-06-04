@@ -38,6 +38,9 @@
   font-size: 0.95rem;
   color: #444;
   margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+
 }
 
 .tag {
@@ -52,4 +55,5 @@
 .cat {
   color: gray;
   margin-bottom: 1.3rem;
+  margin-top: 1rem;
 }
