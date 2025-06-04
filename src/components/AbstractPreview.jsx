@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import styles from './ProjectList.module.css'
+import styles from "./ProjectList.module.css";
 const AbstractPreview = ({ abstract }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const words = abstract.toLowerCase().split(" ");
+  // Split the original abstract (not lowercased) for preview
+  const words = abstract.split(" ");
   const shouldTruncate = words.length > 40;
   const previewText = words.slice(0, 40).join(" ");
   const fullText = abstract;

@@ -38,9 +38,6 @@
   font-size: 0.95rem;
   color: #444;
   margin-bottom: 0.5rem;
-  display: flex;
-  flex-direction: column;
-
 }
 
 .tag {
@@ -53,7 +50,7 @@
   font-size: 0.85rem;
 }
 .cat {
-  color: gray;
+  color: var(--blue);
   margin-bottom: 1.3rem;
-  margin-top: 1rem;
+  margin-top :1.2rem;
 }

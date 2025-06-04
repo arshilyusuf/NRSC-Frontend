@@ -26,11 +26,9 @@ export default function Display({ projects }) {
   }, [displayedProjects.length, batchIndex]);
 
   useEffect(() => {
-    if (domainType ) {
-      const filtered = projects.filter(project => {
-        
-          return project.domain === domainType;
-        
+    if (domainType) {
+      const filtered = projects.filter((project) => {
+        return project.domain === domainType;
       });
       setDisplayedProjects(filtered);
     } else {
@@ -49,7 +47,7 @@ export default function Display({ projects }) {
   };
 
   const maxBatch = Math.floor((displayedProjects.length - 1) / batchSize);
-  
+
   const currentBatchProjects = displayedProjects.slice(
     batchIndex * batchSize,
     batchIndex * batchSize + batchSize
@@ -79,7 +77,6 @@ export default function Display({ projects }) {
         <LeftPanel
           domainType={domainType}
           setDomainType={setDomainType}
-          
           loading={loading}
           setLoading={setLoading}
           error={error}

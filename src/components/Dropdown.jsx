@@ -19,8 +19,6 @@ export default function Dropdown({ options, label = "Select", onSelect }) {
       navigate("/");
     } else if (option.value === "feedback") {
       navigate("/feedback");
-    }else if(option.value === "projectreport"){
-      navigate("/projectreport")
     }
   };
 

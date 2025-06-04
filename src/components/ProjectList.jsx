@@ -27,15 +27,45 @@ const ProjectList = ({ projects }) => {
       <h2>Projects</h2>
       <ul className={styles.list}>
         {paginatedProjects.map(
-          ({ name, title, domain, category, abstract }, idx) => (
+          (
+            {
+              students = [],
+              colleges = [],
+              project_title,
+              domain,
+              abstract,
+              guide_name,
+            },
+            idx
+          ) => (
             <li key={idx} className={styles.listItem}>
-              <h3 className={styles.projectName}>{title}</h3>
-              <AbstractPreview abstract={abstract}/>
-              <div className={styles.infoRow}>
-                <span className={styles.topic}>{name}</span>
-                <div className={styles.rightSide}>
-                  <span>{domain}</span>
-                  <span className={styles.rating}>{category}</span>
+              <h3 className={styles.projectName}>{project_title}</h3>
+              <div style={{ padding: "1rem 2rem" }}>
+                <div className={styles.domainRow}>
+                  <span className={styles.domain}>{domain}</span>
+                </div>
+                <AbstractPreview abstract={abstract} />
+                <div className={styles.infoRow}>
+                  <span className={styles.topic}>
+                    By: &nbsp;
+                    {students.length > 0
+                      ? students.map((student, i) => (
+                          <span key={i}>
+                            {student}
+                            {colleges[i] ? ` (${colleges[i]})` : ""}
+                            {i < students.length - 1 ? ", " : ""}
+                          </span>
+                        ))
+                      : "No students"}
+                  </span>
+                  {/* Removed domain from rightSide */}
+                  <div className={styles.rightSide}></div>
+                </div>
+                {/* Guide name below students/colleges */}
+                <div className={styles.infoRow}>
+                  <span className={styles.guide}>
+                    Guide: {guide_name ? guide_name : "N/A"}
+                  </span>
                 </div>
               </div>
             </li>

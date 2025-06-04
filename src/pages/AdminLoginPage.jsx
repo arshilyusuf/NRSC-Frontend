@@ -1,16 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./AdminLogin.module.css";
+import { AuthContext } from "../context/AuthContext"; // import AuthContext
 
 const AdminLoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const { login } = useContext(AuthContext); // get login from context
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle login logic here (e.g., API call)
-    console.log("Logging in with:", username, password);
+    // For demonstration, just set a dummy user and token
+    const userData = {
+      user: username,
+      token: "dummy-token",
+    };
+    login(userData); // set auth context
     navigate("/admin");
   };
 
@@ -47,4 +54,3 @@ const AdminLoginPage = () => {
 };
 
 export default AdminLoginPage;
-
